@@ -1,3 +1,27 @@
+module CPU(
+    input clk,
+    input reset
+);
+
+// Define internal registers and memories
+reg [18:0] registers [0:31]; // 32 registers, 19 bits each
+reg [18:0] instruction_memory [0:1023]; // 1024 instructions
+
+// Example of simple logic: a counter
+reg [18:0] pc; // Program counter
+
+always @(posedge clk or posedge reset) begin
+    if (reset) begin
+        pc <= 0;
+    end else begin
+        // Simple example: increment PC
+        pc <= pc + 1;
+    end
+end
+
+// Add more logic for instruction execution, etc.
+
+endmodule
 module CPU (
     input clk,
     input reset
